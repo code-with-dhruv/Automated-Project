@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+{% block title %}{{excel.Title}}{% endblock title %}
+
+
+{% load static %}
+  
+
+{% block content %}
+
+{%for excel in allPosts%}
+
+             <div class="card-header mx-3">
+            <div> Featured Query Number{{excel.pk}}
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Title:{{excel.Title}}</h5>
+              <p class="card-text">Written By:{{excel.authors}}.</p>
+              <p class="card-text">WOS-id:{{excel.dbid}}.</p>
+                
+              
+            </div>
+          </div>
+      </div>
+    </div>
+
+    
+{% endfor %} 
+
+    <div class="demo-container">
+        <a href="{% url 'venue_csv' %}">
+            <button>DOWNLOAD</button>
+        </a>
+    </div> 
+{% endblock content %}
+</html>
+
